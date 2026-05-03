@@ -1,0 +1,210 @@
+.over {
+    padding: 100px 0;
+    background-color: $white;
+    &__content {
+        display: flex;
+        gap: 50px;
+        &__art {
+            min-width: 300px;
+            height: 550px;
+            flex: 2.5;
+            display: flex;
+            gap: 50px;
+            .overSwiper2 {
+                min-width: 150px;
+                flex: 1.5;
+                &__card {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    &__img img {
+                        width: 100%;
+                        max-height: 450px;
+                        object-fit: cover;
+                        border-radius: 25px;
+                    }
+                    &__info {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .user {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            &__img {
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+                            &__wrap {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 5px;
+                                &__name {
+                                    @include btnText($black, 700);
+                                }
+                                &__stock {
+                                    @include text($black, 400);
+                                }
+                            }
+                        }
+                        .ethereum {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5px;
+                            &__text {
+                                @include text($black, 400);
+                            }
+                            &__count {
+                                @include btn(auto, auto, $green, $white, $green, 6px 10px, 6px);
+                            }
+                        }
+                    }
+                }
+            }
+            .overSwiper {
+                min-width: 80px;
+                flex: 1;
+                &__card {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    &__img img {
+                        width: 140px;
+                        height: 140px;
+                        object-fit: cover;
+                        border-radius: 15px;
+                    }
+                    &__info {
+                        display: flex;
+                        align-items: flex-start;
+                        flex-direction: column;
+                        gap: 5px;
+                        .name {
+                            @include btnText($black, 700);
+                        }
+                        .user {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            &__img {
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+                            &__btn {
+                                white-space: nowrap;
+                                @include btn(auto, auto, $green, $white, $green, 8px 10px, 6px);
+                            }
+                        }
+                        .link {
+                            @include btn(auto, auto, $violet, $white, $violet, 10px 20px, 50px);
+                        }
+                    }
+                }
+            }
+        }
+        &__last {
+            min-width: 300px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -30px;
+                width: 1px;
+                height: 100%;
+                background-color: $gray;
+            }
+            .title {
+                @include content($black, 700);
+                font-family: 'DM Sans', sans-serif;
+            }
+            .subtitle {
+                @include btnText($violet, 600);
+            }
+            .list {
+                margin-top: 22px;
+                height: 450px;
+                padding: 5px;
+                overflow-y: scroll;
+                display: flex;
+                flex-direction: column;
+                &__item {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    justify-content: space-between;
+                    padding: 10px;
+                    border-bottom: 1px solid $gray;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    &__number {
+                        width: 30px;
+                        text-align: center;
+                        @include content($black, 400);
+                    }
+                    &__img {
+                        width: 60px;
+                        height: 60px;
+                        position: relative;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 50%;
+                        }
+                        .verificate {
+                            position: absolute;
+                            top: -5px;
+                            right: -5px;
+                            width: 25px;
+                            height: 25px;
+                        }
+                    }
+                    &__info {
+                        display: flex;
+                        flex-direction: column;
+                        width: 120px;
+                        gap: 5px;
+                        .name {
+                            @include text($black, 700);
+                        }
+                        .coin {
+                            @include text($black, 400);
+                        }
+                    }
+                    &__percent {
+                        @include btnText($green, 600);
+                    }
+                    &:nth-child(2),
+                    &:nth-child(5) {
+                        .list__item__percent {
+                            color: $red;
+                        }
+                    }
+                }
+                &::-webkit-scrollbar {
+                    width: 2px;
+                    height: 0px;
+                }
+            }
+        }
+    }
+}
+
+.overSwiper .swiper-slide .overSwiper__card__img img {
+    filter: brightness(40%);
+    transition: filter 0.3s;
+}
+
+.overSwiper .swiper-slide-thumb-active .overSwiper__card__img img {
+    filter: brightness(100%);
+}

@@ -1,0 +1,37 @@
+.art {
+    padding: 100px 0;
+    background-color: $bc;
+    &__content {
+        display: flex;
+        gap: 80px;
+        align-items: center;
+        &__title {
+            max-width: 550px;
+            @include content($black, 400);
+        }
+        &__list {
+            display: flex;
+            gap: 50px;
+            .item {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                &__title {
+                    position: relative;
+                    @include btnText($black, 700);
+                    .icon {
+                        position: absolute;
+                        top: 50%;
+                        left: -10px;
+                        font-size: 25px;
+                        transform: translate(-100%, -50%);
+                    }
+                }
+                &__text {
+                    max-width: 300px;
+                    @include text($darkGray, 500);
+                }
+            }
+        }
+    }
+}
