@@ -1,0 +1,44 @@
+@mixin title($color, $weight) {
+    font-size: 40px;
+    color: $color;
+    font-weight: $weight;
+    font-family: 'Rubik Mono One', monospace;
+}
+
+@mixin content($color, $weight) {
+    font-size: 32px;
+    font-weight: $weight;
+    color: $color;
+    font-family: 'Rubik Mono One', monospace;
+}
+
+@mixin btnText($color, $weight) {
+    font-size: 20px;
+    font-weight: $weight;
+    color: $color;
+}
+
+@mixin text($color, $weight) {
+    font-size: 15px;
+    font-weight: $weight;
+    color: $color;
+}
+
+@mixin btn($width, $height, $color, $bgColor, $borderColor, $padding, $radius) {
+    width: $width;
+    height: $height;
+    @include text($color, 500);
+    background-color: $bgColor;
+    padding: $padding;
+    border: 2px solid $borderColor;
+    border-radius: $radius;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: $tr;
+
+    &:hover {
+        background-color: $color;
+        color: $bgColor;
+    }
+}

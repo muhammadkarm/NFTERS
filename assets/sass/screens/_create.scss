@@ -1,0 +1,193 @@
+.create {
+    padding: 100px 0;
+    &__content {
+        display: flex;
+        align-items: center;
+        gap: 70px;
+        &__gallery {
+            min-width: 300px;
+            flex: 1;
+            height: 540px;
+            position: relative;
+            .create__card {
+                position: absolute;
+                border-radius: 24px;
+                overflow: visible;
+                box-shadow: 0 22px 40px rgba(0, 0, 0, 0.16);
+                transition:
+                    top 0.8s ease,
+                    left 0.8s ease,
+                    width 0.8s ease,
+                    height 0.8s ease,
+                    transform 0.8s ease;
+                .create__card__img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 24px;
+                    object-fit: cover;
+                    display: block;
+                }
+                .create__card__user {
+                    position: absolute;
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
+                    border: 4px solid $white;
+                    object-fit: cover;
+                    bottom: -8px;
+                    right: -8px;
+                    box-shadow: 0 14px 24px rgba(0, 0, 0, 0.2);
+                }
+
+                &[data-slot='1'] {
+                    top: 0;
+                    left: 0;
+                    width: 305px;
+                    height: 330px;
+                    z-index: 3;
+                }
+
+                &[data-slot='2'] {
+                    top: 92px;
+                    left: 325px;
+                    width: 250px;
+                    height: 250px;
+                    z-index: 2;
+                }
+
+                &[data-slot='3'] {
+                    top: 304px;
+                    left: 92px;
+                    width: 220px;
+                    height: 220px;
+                    z-index: 1;
+                }
+            }
+        }
+        &__info {
+            min-width: 300px;
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 32px;
+            .title {
+                max-width: 400px;
+                @include content($black, 400);
+            }
+            .text {
+                max-width: 500px;
+                @include btnText($darkGray, 400);
+            }
+            .link {
+                @include btn(auto, auto, $white, $violet, $violet, 16px 40px, 60px);
+            }
+        }
+    }
+}
+
+@media (max-width: 1199px) {
+    .create {
+        &__content {
+            gap: 30px;
+            &__gallery {
+                height: 500px;
+                .create__card {
+                    &[data-slot='1'] {
+                        width: 255px;
+                        height: 295px;
+                    }
+                    &[data-slot='2'] {
+                        top: 90px;
+                        left: 255px;
+                        width: 215px;
+                        height: 215px;
+                    }
+                    &[data-slot='3'] {
+                        top: 285px;
+                        left: 72px;
+                        width: 190px;
+                        height: 190px;
+                    }
+                }
+            }
+            &__info {
+                gap: 24px;
+                .title {
+                    font-size: 28px;
+                    line-height: 1.35;
+                }
+                .text {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .create {
+        &__content {
+            flex-direction: column;
+            align-items: stretch;
+            &__gallery {
+                margin: 0 auto;
+                width: 100%;
+                max-width: 560px;
+                min-width: unset;
+            }
+            &__info {
+                text-align: center;
+                align-items: center;
+                .text {
+                    max-width: 620px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 575px) {
+    .create {
+        padding: 80px 0;
+        &__content {
+            &__gallery {
+                height: 400px;
+                max-width: 100%;
+                .create__card {
+                    &[data-slot='1'] {
+                        width: 190px;
+                        height: 210px;
+                    }
+                    &[data-slot='2'] {
+                        top: 72px;
+                        left: calc(100% - 180px);
+                        width: 170px;
+                        height: 170px;
+                    }
+                    &[data-slot='3'] {
+                        top: 224px;
+                        left: 45px;
+                        width: 155px;
+                        height: 155px;
+                    }
+                    .create__card__user {
+                        width: 56px;
+                        height: 56px;
+                        border-width: 3px;
+                        bottom: -20px;
+                        right: -20px;
+                    }
+                }
+            }
+            &__info {
+                .title {
+                    font-size: 24px;
+                }
+                .text {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
